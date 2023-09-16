@@ -3,7 +3,7 @@ import './fastFoodItem.css';
 import {useEffect, useState} from "react";
 import ImageLoading from "../ImageLoading/imageLoading";
 
-const FastFoodItem = ({name, price, ingredients, imageUrl}) => {
+const FastFoodItem = ({name, price, ingredients, imageUrl, delay}) => {
     const [imageLoading, setImageLoading] = useState(true);
     useEffect(() => {
         const img = new Image();
@@ -23,7 +23,7 @@ const FastFoodItem = ({name, price, ingredients, imageUrl}) => {
         )
     }
     return (
-        <div className='card product-card h-100 border-0 shadow-sm pb-1'>
+        <div className='card product-card h-100 border-0 shadow-sm pb-1 fade-in-horiz' style={{animationDelay: delay + 's'}}>
             <span
                 className='badge badge-end badge-shadow bg-success fs-md fw-medium'>قیمت : {price.toLocaleString()} تومان</span>
             <div className='card__placeholder'>
